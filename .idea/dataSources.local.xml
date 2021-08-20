@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="RM-212.4746.90">
+    <data-source name="Rails capstone-api: production" uuid="c053e30a-3b92-46ab-994f-26626d33376b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>study_tracker_api</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails capstone-api: development" uuid="8763b3d3-f8e9-4fa3-afba-2433d3cdcd18">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="Rails capstone-api: test" uuid="e1aa490a-0556-431a-9480-4503ac67e532">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
