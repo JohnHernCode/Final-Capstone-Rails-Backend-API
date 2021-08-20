@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20_210_820_174_119) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-  create_table 'measurements', force: :cascade do |t|
+  create_table 'measures', force: :cascade do |t|
     t.integer 'result', null: false
     t.bigint 'subject_id', null: false
     t.bigint 'user_id', null: false
     t.string 'date', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['subject_id'], name: 'index_measurements_on_subject_id'
-    t.index ['user_id'], name: 'index_measurements_on_user_id'
+    t.index ['subject_id'], name: 'index_measures_on_subject_id'
+    t.index ['user_id'], name: 'index_measures_on_user_id'
   end
 
   create_table 'subjects', force: :cascade do |t|
@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 20_210_820_174_119) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key 'measurements', 'subjects'
-  add_foreign_key 'measurements', 'users'
+  add_foreign_key 'measures', 'subjects'
+  add_foreign_key 'measures', 'users'
 end

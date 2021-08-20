@@ -8,8 +8,8 @@ class Measure < ApplicationRecord
 
   scope :order_by_date, -> { order(date: :desc) }
 
-  def self.all_records(user)
-    user.records.order_by_date.joins(:subject).select('
+  def self.all_measures(user)
+    user.measures.order_by_date.joins(:subject).select('
       measures.id,
       measures.user_id,
       subject_id,
@@ -19,8 +19,8 @@ class Measure < ApplicationRecord
       ')
   end
 
-  def self.all_record_dates(user)
-    user.records.order_by_date.pluck(:date).uniq
+  def self.all_measure_dates(user)
+    user.measures.order_by_date.pluck(:date).uniq
   end
 end
 
