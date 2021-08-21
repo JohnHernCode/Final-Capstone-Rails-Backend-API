@@ -15,7 +15,7 @@ class Measure < ApplicationRecord
       subject_id,
       date,
       result,
-      subject.target AS target
+      subjects.target AS target
       ')
   end
 
