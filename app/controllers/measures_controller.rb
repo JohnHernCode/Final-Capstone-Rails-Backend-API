@@ -25,9 +25,8 @@ class MeasuresController < ApplicationController
   end
 
   def create
-    # rubocop:disable Layout/LineLength
-    @measure = @current_user.measures.create(result: meas_params[:result], subject_id: meas_params[:subjectId], date: meas_params[:date])
-    # rubocop:enable Layout/LineLength
+    @measure = @current_user.measures.create(result: meas_params[:result], subject_id: meas_params[:subjectId],
+                                             date: meas_params[:date])
 
     if @measure.valid?
       render json: @measure, status: 201
@@ -60,6 +59,6 @@ class MeasuresController < ApplicationController
   end
 
   def meas_params
-    params.require(:measure).permit(:result, :subject_id, :date, :subjectId)
+    params.permit(:result, :subject_id, :date, :subjectId)
   end
 end

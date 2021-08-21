@@ -47,7 +47,7 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:title, :unit, :icon, :target)
+    params.permit(:title, :unit, :icon, :target)
   end
 
   def set_subject

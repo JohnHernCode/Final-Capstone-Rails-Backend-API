@@ -2,16 +2,13 @@
 
 # Application Controller
 class ApplicationController < ActionController::API
-  SECRET_KEY = Rails.application.credentials.jwt[:secret].to_s
-  EXPIRES_IN = Rails.application.credentials.jwt[:expires_in]
-
   def authorized
     render json: { message: 'You must log in' }, status: 401 unless logged_in?
   end
 
   def encode_token(payload)
-    payload[:exp] = EXPIRES_IN.days.from_now.to_i
-    JWT.encode(payload, SECRET_KEY, 'HS256')
+    payload[:exp] = Time.now + 24.hours.to_i
+    JWT.encode(payload, 's3cr3t', 'HS256')
   end
 
   def auth_header
@@ -25,7 +22,7 @@ class ApplicationController < ActionController::API
 
     token = auth_header
     begin
-      JWT.decode(token, SECRET_KEY, true, algorithm: 'HS256')
+      JWT.decode(token, 's3cr3t', true, algorithm: 'HS256')
     rescue JWT::DecodeError
       nil
     end

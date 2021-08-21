@@ -3,7 +3,8 @@
 # Auto Login Controller
 class AutoLoginController < ApplicationController
   def create
-    @user = User.find(user_params[:user_id])
+    user_id = decoded_token[0]['user_id']
+    @user = User.find_by(id: user_id)
 
     if @user
       render json: { logged_in: true, user: user_data(@user) }
@@ -13,10 +14,6 @@ class AutoLoginController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:user_id)
-  end
 
   def user_data(user)
     {
