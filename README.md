@@ -117,7 +117,6 @@ Give a :star: if you like this project!
 ## Acknowledgements
 
 - [Microverse](https://www.microverse.org/)
-- [React](https://github.com/facebook/create-react-app)
 - [HEROKU](https://heroku.com)
 
 ## Credits
