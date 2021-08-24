@@ -13,15 +13,15 @@ User.create([{
             }])
 
 Item.create([{
-                 title: 'HTML', unit: 'hrs', icon: 'akar-icons:html-fill', target: 30
-               }, {
-                 title: 'JavaScript', unit: 'hrs', icon: 'akar-icons:javascript-fill', target: 30
-               }, {
-                 title: 'Ruby', unit: 'hrs', icon: 'codicon:ruby', target: 15
-               }, {
-                 title: 'Rails', unit: 'hrs', icon: 'mdi:language-ruby-on-rails', target: 10
-               }, {
-                 title: 'React', unit: 'hrs', icon: 'akar-icons:react-fill', target: 30
-               }, {
-                 title: 'Redux', unit: 'hrs', icon: 'akar-icons:redux-fill', target: 200
-               }])
+              title: 'HTML', unit: 'hrs', icon: 'akar-icons:html-fill', target: 30
+            }, {
+              title: 'JavaScript', unit: 'hrs', icon: 'akar-icons:javascript-fill', target: 30
+            }, {
+              title: 'Ruby', unit: 'hrs', icon: 'codicon:ruby', target: 15
+            }, {
+              title: 'Rails', unit: 'hrs', icon: 'mdi:language-ruby-on-rails', target: 10
+            }, {
+              title: 'React', unit: 'hrs', icon: 'akar-icons:react-fill', target: 30
+            }, {
+              title: 'Redux', unit: 'hrs', icon: 'akar-icons:redux-fill', target: 200
+            }])

@@ -2,55 +2,64 @@
 
 # Records Controller
 class RecordsController < ApplicationController
-  before_action :authorized, except: %i[index show]
-  before_action :set_item, only: %i[show update destroy]
+  before_action :authorized
+  before_action :set_record, only: %i[show update destroy]
 
   def index
-    @items = Item.order_by_title
-    render json: @items, status: 200
+    @records = Record.all_records(@current_user)
+    @record_dates = Record.all_record_dates(@current_user)
+
+    if @records
+      render json: { records: @records, record_dates: @record_dates }, status: 200
+    else
+      render json: 'No records yet'
+    end
   end
 
   def show
-    if @item
-      render json: @item, status: 200
+    if @record
+      render json: @record, status: 200
     else
-      render json: { error: 'Sorry, the item was not found' }, status: 404
+      render json: { error: 'Record not found' }, status: 404
     end
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      render json: @item, status: 201
+    # rubocop:disable Layout/LineLength
+    @record = @current_user.records.create(result: rec_pms[:result], item_id: rec_pms[:itemId], date: rec_pms[:date])
+    # rubocop:enable Layout/LineLength
+
+    if @record.valid?
+      render json: @record, status: 201
     else
-      render json: { error: 'Item could not be created.' }, status: 404
+      render json: { error: 'Track could not be created.' }, status: 404
     end
   end
 
   def update
-    if @item.update(item_params)
-      render json: @item, status: 200
+    if @record.update(result: rec_pms[:result], item_id: rec_pms[:itemId], date: rec_pms[:date])
+      render json: @record, status: 200
     else
-      render json: { error: 'Item could not be updated.' }, status: 404
+      render json: { error: 'Track could not be updated.' }, status: 422
     end
   end
 
   def destroy
-    if @item
-      @item.destroy
-      render json: { message: 'Successfully deleted', deleted_item: @item }, status: 200
+    if @record
+      @record.destroy
+      render json: { message: 'Successfully deleted', deleted_record: @record }, status: 200
     else
-      render json: { error: 'Item could not be deleted' }, status: 404
+      render json: { error: 'Sorry, Record could not be deleted' }, status: 422
     end
   end
 
   private
 
-  def item_params
-    params.require(:item).permit(:title, :unit, :icon, :target)
+  def set_record
+    @record = @current_user.records.find(params[:id])
   end
 
-  def set_item
-    @item = Item.find(params[:id])
+  def rec_pms
+    params.require(:record).permit(:result, :item_id, :date, :itemId)
   end
 end
