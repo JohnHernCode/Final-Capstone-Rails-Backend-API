@@ -12,7 +12,7 @@ User.create([{
               username: 'admin', password: 'admin', admin: true
             }])
 
-Subject.create([{
+Item.create([{
                  title: 'HTML', unit: 'hrs', icon: 'akar-icons:html-fill', target: 30
                }, {
                  title: 'JavaScript', unit: 'hrs', icon: 'akar-icons:javascript-fill', target: 30

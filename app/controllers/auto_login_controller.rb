@@ -3,17 +3,20 @@
 # Auto Login Controller
 class AutoLoginController < ApplicationController
   def create
-    user_id = decoded_token[0]['user_id']
-    @user = User.find_by(id: user_id)
+    @user = User.find(user_params[:user_id])
 
     if @user
       render json: { logged_in: true, user: user_data(@user) }
     else
-      render json: { error: 'Incorrect Token' }, status: 401
+      render json: { error: 'Please provide correct token' }, status: 401
     end
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:user_id)
+  end
 
   def user_data(user)
     {

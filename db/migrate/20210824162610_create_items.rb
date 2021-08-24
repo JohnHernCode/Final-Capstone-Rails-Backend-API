@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# migration for subjects
-class CreateSubjects < ActiveRecord::Migration[6.1]
+# Create Items table
+class CreateItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :subjects do |t|
+    create_table :items do |t|
       t.string :title
       t.string :unit
       t.string :icon

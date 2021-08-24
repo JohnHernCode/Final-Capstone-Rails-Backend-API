@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+# User Model
 class User < ApplicationRecord
   has_secure_password
-  has_many :measures, dependent: :destroy
-  has_many :subjects, through: :measures
+  has_many :records, dependent: :destroy
+  has_many :items, through: :records
   validates :username, presence: true, uniqueness: true
 end

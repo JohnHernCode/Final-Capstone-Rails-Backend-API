@@ -3,12 +3,12 @@
 # Application Controller
 class ApplicationController < ActionController::API
   def authorized
-    render json: { message: 'You must log in' }, status: 401 unless logged_in?
+    render json: { message: 'Please log in' }, status: 401 unless logged_in?
   end
 
   def encode_token(payload)
     payload[:exp] = 1.days.from_now.to_i
-    JWT.encode(payload, 's3cr3t', 'HS256')
+    JWT.encode(payload, 'SECRET_KEY', 'HS256')
   end
 
   def auth_header
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
 
     token = auth_header
     begin
-      JWT.decode(token, 's3cr3t', true, algorithm: 'HS256')
+      JWT.decode(token, 'SECRET_KEY', true, algorithm: 'HS256')
     rescue JWT::DecodeError
       nil
     end

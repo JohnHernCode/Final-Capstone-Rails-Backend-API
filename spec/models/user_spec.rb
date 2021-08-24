@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Testing associations' do
-    it { should have_many(:measures).dependent(:destroy) }
-    it { should have_many(:subjects).through(:measures) }
+    it { should have_many(:records).dependent(:destroy) }
+    it { should have_many(:items).through(:records) }
   end
 end
