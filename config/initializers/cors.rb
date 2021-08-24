@@ -17,7 +17,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   # for development
   allow do
-    origins 'http://localhost:3000'
+    origins 'http://localhost:5000'
 
     resource '*',
              headers: :any,
@@ -28,7 +28,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
   # for production
   allow do
-    origins 'https://capstone-api-johnhern.herokuapp.com'
+    origins '*'
 
     resource '*',
              headers: :any,
