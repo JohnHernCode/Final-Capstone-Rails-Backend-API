@@ -27,13 +27,13 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 
   # for production
-  # allow do
-  #   origins '*'
-  #
-  #   resource '*',
-  #            headers: :any,
-  #            expose: %w[access-token id],
-  #            methods: %i[get post put patch delete options head],
-  #            credentials: true
-  # end
+   allow do
+     origins 'https://react-front-end-final.herokuapp.com/'
+  
+     resource '*',
+              headers: :any,
+              expose: %w[access-token id],
+              methods: %i[get post put patch delete options head],
+              credentials: true
+   end
 end
