@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Login Controller
 class LoginController < ApplicationController
   def create
     @user = User.find_by(username: user_params[:username])

@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Record Model
 class Record < ApplicationRecord
   belongs_to :item
   belongs_to :user

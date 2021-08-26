@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Auto Login Controller
 class AutoLoginController < ApplicationController
   def create
     @user = User.find(user_params[:user_id])

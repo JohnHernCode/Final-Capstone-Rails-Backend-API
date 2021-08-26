@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Item Model
 class Item < ApplicationRecord
   has_many :records, dependent: :destroy
   has_many :users, through: :records

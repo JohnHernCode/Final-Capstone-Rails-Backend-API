@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Application Controller
 class ApplicationController < ActionController::API
   def authorized
     render json: { message: 'Please log in' }, status: 401 unless logged_in?

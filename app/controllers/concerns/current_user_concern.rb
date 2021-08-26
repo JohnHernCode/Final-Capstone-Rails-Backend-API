@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Current User Concern
 module CurrentUserConcern
   extend ActiveSupport::Concern
 

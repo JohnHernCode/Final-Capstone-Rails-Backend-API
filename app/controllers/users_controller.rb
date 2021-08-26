@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# User Controller
 class UsersController < ApplicationController
   before_action :authorized, only: [:show]
 

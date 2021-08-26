@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Items Controller
 class ItemsController < ApplicationController
   before_action :authorized, except: %i[index show]
   before_action :set_item, only: %i[show update destroy]
