@@ -79,12 +79,12 @@ Auto login happens after you have the auth token copied. Go to
 
 Retrieve all subjects
 - Using GET as a parameter, go to
-- ```http://127.0.0.1:3000/subjects```
+- ```http://127.0.0.1:3000/items```
 - This will return all subjects.
 
 Retrieve individual subjects 
 - Using GET as a parameter, go to
-- ```http://127.0.0.1:3000/subjects/1```
+- ```http://127.0.0.1:3000/items/1```
 - Note the number, if you change it, you will see a different subject.
 - This will return subjects only belonging to the user
 
