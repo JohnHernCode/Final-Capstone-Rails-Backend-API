@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 
   # SIGNUP
   def create
-    @user = User.create(username: user_params[:username], password: user_params[:password])
+    @user = User.new(username: user_params[:username], password: user_params[:password])
 
-    if @user.valid?
+    if @user.save
       token = encode_token({ user_id: @user.id })
       render json: { status: :created, user: user_data(@user), token: token }, status: 201
     else

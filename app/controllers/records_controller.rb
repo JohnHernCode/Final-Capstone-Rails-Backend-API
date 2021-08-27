@@ -22,8 +22,8 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @record = @current_user.records.create(result: rec_pms[:result], item_id: rec_pms[:itemId], date: rec_pms[:date])
-    if @record.valid?
+    @record = @current_user.records.new(rec_pms)
+    if @record.save
       render json: @record, status: 201
     else
       render json: { error: 'Track could not be created.' }, status: 404

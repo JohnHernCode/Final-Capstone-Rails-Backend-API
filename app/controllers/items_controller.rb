@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       render json: @item, status: 201
     else
-      render json: { error: 'Item could not be created.' }, status: 404
+      render json: { error: 'Item could not be created.' }, status: 422
     end
   end
 
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       render json: @item, status: 200
     else
-      render json: { error: 'Item could not be updated.' }, status: 404
+      render json: { error: 'Item could not be updated.' }, status: 422
     end
   end
 
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
       @item.destroy
       render json: { message: 'Successfully deleted', deleted_item: @item }, status: 200
     else
-      render json: { error: 'Item could not be deleted' }, status: 404
+      render json: { error: 'Item could not be deleted' }, status: 422
     end
   end
 
