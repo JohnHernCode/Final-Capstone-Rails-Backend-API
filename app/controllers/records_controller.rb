@@ -26,12 +26,12 @@ class RecordsController < ApplicationController
     if @record.save
       render json: @record, status: 201
     else
-      render json: { error: 'Track could not be created.' }, status: 404
+      render json: { error: 'Track could not be created.' }, status: 422
     end
   end
 
   def update
-    if @record.update(result: rec_pms[:result], item_id: rec_pms[:itemId], date: rec_pms[:date])
+    if @record.update(rec_pms)
       render json: @record, status: 200
     else
       render json: { error: 'Track could not be updated.' }, status: 422

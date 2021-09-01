@@ -13,37 +13,37 @@
 ActiveRecord::Schema.define(version: 2021_08_27_145422) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "items", force: :cascade do |t|
-    t.string "title"
-    t.string "unit"
-    t.string "icon"
-    t.integer "target"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'items', force: :cascade do |t|
+    t.string 'title'
+    t.string 'unit'
+    t.string 'icon'
+    t.integer 'target'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "records", force: :cascade do |t|
-    t.integer "result", null: false
-    t.bigint "item_id", null: false
-    t.bigint "user_id", null: false
-    t.string "date", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_records_on_item_id"
-    t.index ["user_id"], name: "index_records_on_user_id"
+  create_table 'records', force: :cascade do |t|
+    t.integer 'result', null: false
+    t.bigint 'item_id', null: false
+    t.bigint 'user_id', null: false
+    t.string 'date', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['item_id'], name: 'index_records_on_item_id'
+    t.index ['user_id'], name: 'index_records_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "password_digest"
-    t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["username"], name: "index_users_on_username", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'username', null: false
+    t.string 'password_digest'
+    t.boolean 'admin', default: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['username'], name: 'index_users_on_username', unique: true
   end
 
-  add_foreign_key "records", "items"
-  add_foreign_key "records", "users"
+  add_foreign_key 'records', 'items'
+  add_foreign_key 'records', 'users'
 end
